@@ -1,5 +1,5 @@
-#include <modAlphaCipher.h>
-modAlphaCipher::modAlphaCipher(
+#include <modAlphaTable.h>
+modAlphaTable::modAlphaTable(
     const std::wstring& wskey)
 {
 	for (unsigned i=0; i<numAlpha.size(); i++) {
@@ -63,7 +63,7 @@ inline std::wstring modAlphaCipher::getValidKey(const std::wstring & ws)
 
 	return tmp;
 }
-inline std::wstring modAlphaCipher::getValidOpenText(const std::wstring & ws)
+inline std::wstring modAlphaTable::getValidOpenText(const std::wstring & ws)
 {
 	std::wstring tmp;
 	for (auto c:ws) {
@@ -78,7 +78,7 @@ inline std::wstring modAlphaCipher::getValidOpenText(const std::wstring & ws)
 		throw cipher_error("Empty open text");
 	return tmp;
 }
-inline std::wstring modAlphaCipher::getValidCipherText(const std::wstring & ws)
+inline std::wstring modAlphaTable::getValidCipherText(const std::wstring & ws)
 {
 	if (ws.empty())
 		throw cipher_error("Empty cipher text");
