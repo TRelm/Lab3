@@ -4,7 +4,7 @@
 #include <map>
 #include <codecvt>
 #include <locale>
-class modAlphaTable
+class modAlphaCipher
 {
 private:
 	std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> codec;
@@ -17,8 +17,8 @@ private:
 	std::wstring getValidOpenText(const std::wstring & ws);
 	std::wstring getValidCipherText(const std::wstring & ws);
 public:
-	modAlphaTable()=delete;//запретим конструктор без параметров
-	modAlphaTable(const std::wstring& wskey);  //конструктор для установки ключа
+	modAlphaCipher()=delete;//запретим конструктор без параметров
+	modAlphaCipher(const std::wstring& wskey);  //конструктор для установки ключа
 	std::wstring encrypt(const std::wstring& open_text);  //зашифрование
 	std::wstring decrypt(const std::wstring& cipher_text);//расшифрование
 };
